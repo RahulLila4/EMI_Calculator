@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2 align="center">EMI Calculator</h2>
+
+<form method="POST">
+    <label>Loan Amount (₹):</label>
+    <input type="number" name="principal" required>
+
+    <label>Annual Interest Rate (%):</label>
+    <input type="number" name="rate" step="0.01" required>
+
+    <label>Tenure (Months):</label>
+    <input type="number" name="tenure" required>
+
+    <button type="submit">Calculate EMI</button>
+</form>
+
+<div class="result">
+    {% if emi is not none %}
+        <h3>Monthly EMI: ₹{{ emi }}</h3>
+        <p>Total Payment: ₹{{ total_payment }}</p>
+        <p>Total Interest: ₹{{ total_interest }}</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
